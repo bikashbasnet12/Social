@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+    {{user.first_name}} profile
+{% endblock title %}
+
+{% block content %}
+
+        {% for post in posts %}
+        <div class="max-w-2xl mx-auto p-4">
+    <div class="flex items-center gap-4 mb-6">
+        <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-2xl font-bold text-black">
+            {{ user.username|slice:":1"|upper }}
+        </div>
+        <p class="text-xl font-semibold">{{ user.username }}</p>
+    </div>
+
+    <div class="space-y-4">
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post image" class="w-full max-h-96 object-cover">
+            {% endif %}
+            <div class="p-4 text-gray-800">
+                {{ post.content }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock content %}
