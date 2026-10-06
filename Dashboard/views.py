@@ -8,6 +8,6 @@ def dashboard_view(request):
     return render(request,'dashboard/dashboardview.html',
                   
                   {
-                      "post":posts
+                      "posts":posts
                   }
                   )
